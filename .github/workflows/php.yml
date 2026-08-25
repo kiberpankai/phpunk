@@ -15,20 +15,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@eef61447b9ff4aafe5dcd72e0e56e3c9bc5daa89
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@c465f491934b4f549facc007d9d1be3d605b8ec9
       with:
         php-version: '8.1'
         extensions: mbstring, intl, json
 
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v3
+      uses: actions/cache@3624ceb22c1c5a301c8017458d7ceda3f38e3b50
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
